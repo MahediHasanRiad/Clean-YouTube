@@ -1,0 +1,51 @@
+{
+    "kind": "youtube#playlistItem",
+    "etag": "kYLZ5NRzocdOjXSnAhAWnDUhlFU",
+    "id": "UExfWHh1WnFOMHhWRDBvcC1RREVneVhGQTRmUlBDaHZrbC5ENjI1QUI0MDI5NEQzODFE",
+    "snippet": {
+        "publishedAt": "2022-10-19T02:10:29Z",
+        "channelId": "UCrmHQdRbYKFsB602Duho4Tw",
+        "title": "Lecture 49: Track Zone Project Breakdown - Component Tree and Clock Logic (Part 2) | Full-Stack Army",
+        "description": "Lecture 49: Track Zone Project Breakdown - Component Tree and Clock Logic (Part 2) | Full-Stack Army | Stack Learner\n\n# Class 48.1\n\n00:00 Intro  \n00:53 Start  \n02:14 Todays topic  \n06:37 Project requirement  \n13:59 Writing breakdown  \n27:20 Mock UI  \n31:02 Component design  \n47:31 QNA  \n55:13 Break  \n57:18 UI Components  \n01:17:39 QNA  \n01:23:19 Data  \n01:34:21 Vite app\n\n\nআমাদের সাথে যোগাযোগ করুনঃ  \n---------------------------------------------------\nEmail: support@stacklearner.com\nফেসবুক পেজঃ https://fb.me/stacklearner \nফেসবুক গ্রুপঃ https://fb.com/groups/stacklearner \nLinkedIn পেজঃ https://linkedin.com/company/stacklearner \nTwitter: https://twitter.com/stacklearner\nInstagram: https://instagram.com/stacklearner\n\n#TrackZoneProjectBreakdown, #stacklearner, #hmnayem, #fsarmy, #fullstackarmy, #TrackZoneProject, #ComponentTree, #mernstackprojectinbangla, #fullstackdevelopmentcourse, #reacttrackzoneproject, #webdesigntutorial, #fullstackarmylecture48, #fullstackarmytrackzoneproject, #lecture48offullstackarmy, #mernstackprojects, #fullstackdevelopmentbanglatutorial, #reacthooksuseeffect, #webdesign, #webdevelopmentcourse, #reacttutorialforbeginners",
+        "thumbnails": {
+            "default": {
+                "url": "https://i.ytimg.com/vi/UfoxyEYlIVg/default.jpg",
+                "width": 120,
+                "height": 90
+            },
+            "medium": {
+                "url": "https://i.ytimg.com/vi/UfoxyEYlIVg/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+            },
+            "high": {
+                "url": "https://i.ytimg.com/vi/UfoxyEYlIVg/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+            },
+            "standard": {
+                "url": "https://i.ytimg.com/vi/UfoxyEYlIVg/sddefault.jpg",
+                "width": 640,
+                "height": 480
+            },
+            "maxres": {
+                "url": "https://i.ytimg.com/vi/UfoxyEYlIVg/maxresdefault.jpg",
+                "width": 1280,
+                "height": 720
+            }
+        },
+        "channelTitle": "Stack Learner",
+        "playlistId": "PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl",
+        "position": 50,
+        "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "UfoxyEYlIVg"
+        },
+        "videoOwnerChannelTitle": "Stack Learner",
+        "videoOwnerChannelId": "UCrmHQdRbYKFsB602Duho4Tw"
+    },
+    "contentDetails": {
+        "videoId": "UfoxyEYlIVg",
+        "videoPublishedAt": "2022-10-19T04:00:09Z"
+    }
+}
