@@ -15,16 +15,24 @@ function AllPlaylist() {
     }
     // submit button 
     const submitPlaylist = (e) => {
-        if(playlistId.trim()){
-          getPlaylistById(playlistId)
-        }
+      e.preventDefault()
+
+      if(playlistId.trim()){
+        getPlaylistById(playlistId)
+      }
+      setPlaylistId('')
     }
 
 
 
   return (
     <section>
-      <AddPlayListBtn playlistLink={playlistLink} submitPlaylist={submitPlaylist}/>
+      <AddPlayListBtn 
+        playlistLink={playlistLink} 
+        submitPlaylist={submitPlaylist}
+        value={playlistId}
+      />
+
       <Playlist playlists={playlists} />
     </section>
   );

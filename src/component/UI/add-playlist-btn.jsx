@@ -1,4 +1,4 @@
-function AddPlayListBtn({ playlistLink, submitPlaylist }) {
+function AddPlayListBtn({ playlistLink, submitPlaylist, value }) {
   return (
     <div className="container my-4">
       <div className="d-flex justify-content-end">
@@ -45,6 +45,7 @@ function AddPlayListBtn({ playlistLink, submitPlaylist }) {
                     className="form-control" 
                     id="playlist-link" 
                     onChange={playlistLink}
+                    value={value}
                     placeholder="Enter YouTube playlist URL"
                   />
                 </div>

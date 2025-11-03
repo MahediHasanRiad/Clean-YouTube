@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import getPlaylist from "../API"
 
 
@@ -7,11 +7,31 @@ const initialValue = {
     favourites: [],
     recentPlaylists: []
 }
-const usePlaylist = () => {
+const usePlaylistItem = () => {
 
     const [state, setState] = useState({...initialValue})
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+
+    // set local Storage
+    useEffect(() => {
+        const result = localStorage.getItem('CY__Playlist')
+        if(result){
+            try {
+                const parse = JSON.parse(result)
+                setState(parse)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }, [])
+
+      useEffect(() => {
+        if(state !== initialValue){
+            localStorage.setItem('CY__Playlist', JSON.stringify(state))
+        }
+    }, [state])
+    // set local storage end
 
     // set playlist
     const getPlaylistById = async ( playlistId, force = false ) => {
@@ -25,48 +45,21 @@ const usePlaylist = () => {
         setLoading(true)
 
         try {
-            let result = await getPlaylist(playlistId)
-    
-            // "channelId & channelTitle" are always same
-            let cid, ct;
-    
-            result = result.map(item => {
-                const { channelId, title, description, thumbnails: {medium}, channelTitle } = item.snippet
-                
-                if(!cid){
-                    cid = channelId
-                }
-                if(!ct){
-                    ct = channelTitle
-                }
-    
-                return {
-                    title,
-                    description,
-                    thumbnail: medium,
-                    contentDetails: item.contentDetails
-                }
-            })
-    
+            const playlist = await getPlaylist(playlistId)
+
             setState(prev => ({
                 ...prev,
                 playlists: {
                     ...prev.playlists,
-                    [playlistId]: {
-                        items: result,
-                        playlistId: playlistId,
-                        channelId: cid,
-                        channelTitle: ct
-                    }
+                    [playlistId]: playlist
                 }
             }))
         } catch (e) {
-            setError( e.response.data.error.message || 'something went wrong...')
+            setError( e.response?.data?.error?.message || 'something went wrong...')
         } finally {
             setLoading(false)
         } 
     }
-    console.log(error)
 
     // set favourite
     const addFavourite = (playlistId) => {
@@ -101,4 +94,5 @@ const usePlaylist = () => {
     }
 }
 
-export default usePlaylist
+
+export default usePlaylistItem
