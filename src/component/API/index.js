@@ -26,12 +26,13 @@ const getPlaylist = async (playlistId) => {
 
   // playlist item
   playlistItems = playlistItems.map(item => {
-    const { title, description, thumbnails: {medium} } = item.snippet
+    const { title, description, thumbnails: {medium}, resourceId: { videoId } } = item.snippet
 
     return {
       title,
       description,
       thumbnail: medium,
+      videoId: videoId
     }
   })
 

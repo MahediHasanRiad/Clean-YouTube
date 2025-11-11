@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
 import usePlaylistItem from '../Hooks/usePlaylist'
 import { useEffect } from 'react'
+import Rcard from '../UI/all-videos/r-card'
+import Lcard from '../UI/all-videos/L-card'
 
 function PlaylistAllVideos() {
 
@@ -27,10 +29,10 @@ function PlaylistAllVideos() {
   }
 
   return (
-    <div>
-      <h1>{playlist.channelTitle}</h1>
-      <p>{playlist.playlistDescription}</p>
-    </div>
+    <section className='row' style={{ width: '100%', height: '1000px', overflow: 'scroll'}}>
+      <Rcard playlistThumbnail={playlist.thumbnail.url} playlistTitle={playlist.playlistTitle}/>
+      <Lcard playlistVideos={playlist.playlistItems} />
+    </section>
   )
 }
 
