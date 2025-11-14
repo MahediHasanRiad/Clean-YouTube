@@ -4,7 +4,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addFavourite, removeFavourite } from "../features/favourite-Slice";
 
-function PlaylistCard({
+function FavouriteCard({
   image,
   playlistName,
   playlistDescription,
@@ -46,10 +46,10 @@ function PlaylistCard({
               </Link>
             </div>
             <div>
-              <Link to={''} className="m-2" onClick={() => dispatch(addFavourite(playlistId))}>
+              {/* <Link to={''} className="m-2" onClick={() => dispatch(addFavourite(playlistId))}>
                 <CiHeart size={25} />
-              </Link>
-              <Link to={''} className="m-2" onClick={''}>
+              </Link> */}
+              <Link to={''} className="m-2" onClick={() => dispatch(removeFavourite(playlistId))}>
                 <MdDeleteOutline size={25} />
               </Link>
             </div>
@@ -60,4 +60,4 @@ function PlaylistCard({
   );
 }
 
-export default PlaylistCard;
+export default FavouriteCard;

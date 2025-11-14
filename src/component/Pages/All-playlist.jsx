@@ -1,12 +1,18 @@
 import Playlist from "../UI/playlist";
 import AddPlayListBtn from "../UI/add-playlist-btn";
-import { useEffect, useState } from "react";
-import usePlaylist from "../Hooks/usePlaylist";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPlaylist } from "../features/playlist-Slice";
+import { useState } from "react";
+import Favourite from "../UI/favourite";
 
 function AllPlaylist() {
 
     const [playlistId, setPlaylistId] = useState('')
-    const { getPlaylistById, playlists } = usePlaylist()
+
+    const isError = useSelector(state => state.Playlist.isError)
+    const isLoading = useSelector(state => state.Playlist.isLoading)
+    const dispatch = useDispatch()
+
 
     // input playlist
     const playlistLink = (e) => {
@@ -18,7 +24,7 @@ function AllPlaylist() {
       e.preventDefault()
 
       if(playlistId.trim()){
-        getPlaylistById(playlistId)
+        dispatch(fetchPlaylist(playlistId))
       }
       setPlaylistId('')
     }
@@ -32,8 +38,10 @@ function AllPlaylist() {
         submitPlaylist={submitPlaylist}
         value={playlistId}
       />
-
-      <Playlist playlists={playlists} />
+      {isError && <div>Error: {isError}</div>}
+      {isLoading && <div>Loading...</div>}
+      <Favourite/>
+      <Playlist/>
     </section>
   );
 }

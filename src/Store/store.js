@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import youtubeSlice from '../component/features/youtubeSlice'
+import PlaylistSlice from "../component/features/playlist-Slice";
+import FavouriteSlice from '../component/features/favourite-Slice';
+import RecentPlaylistSlice from '../component/features/recentPlaylist-Slice';
+
 
 export const Store = configureStore({
     reducer: {
-        CleanYoutube: youtubeSlice
+        Playlist: PlaylistSlice,
+        Favourite: FavouriteSlice,
+        RecentPlaylist: RecentPlaylistSlice
     }
 })

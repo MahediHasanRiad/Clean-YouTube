@@ -1,51 +1,54 @@
 import { Link, useParams } from "react-router-dom";
 
+
 function Lcard({ playlistVideos }) {
   const { id: playlistId } = useParams();
 
   return (
-    <div className="col-8">
+    <div className="col-6">
       {playlistVideos.map((item, index) => (
-        <section className="d-flex p-4" key={index}>
+        <Link
+              to={`/allplaylist/${playlistId}/${item.videoId}`}
+              style={{ color: "inherit", textDecoration: "none",  }}
+        >
+        <section className="d-flex p-2" key={index}>
           <div>
             {item.thumbnail?.url ? (
               <img
                 src={item.thumbnail.url}
                 alt={item.title}
-                className="me-4 rounded"
+                className="me-1 rounded"
                 style={{
-                  height: item.thumbnail.height || "auto",
-                  width: item.thumbnail.width || "320px",
+                  height: '100%',
+                  width: '90%',
                 }}
               />
             ) : (
               <div
-                className="me-4"
-                style={{ width: "320px", height: "180px", background: "#ccc" }}
+                className="me-1"
+                style={{ width: "100%", height: "180px", background: "#ccc" }}
               >
                 No Image
               </div>
             )}
           </div>
-          <div>
-            <Link
-              to={`/allplaylist/${playlistId}/${item.videoId}`}
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              <h4> {item.title} </h4>
-            </Link>
-            <h6
+          <div style={{ width: '50%' }}>
+              <h6> {item.title} </h6>
+            
+            <span
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
+                color: 'gray'
               }}
             >
               {item.description}
-            </h6>
+            </span>
           </div>
         </section>
+        </Link>
       ))}
     </div>
   );

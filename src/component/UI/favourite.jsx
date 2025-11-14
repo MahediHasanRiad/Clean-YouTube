@@ -1,20 +1,23 @@
 import { useSelector } from "react-redux";
-import PlaylistCard from "../Utils/playlist-card";
+import FavouriteCard from "../Utils/favourite-card";
 
-function Playlist() {
+function Favourite() {
+  const favourites = useSelector((state) => state.Favourite.favourites);
   const playlists = useSelector((state) => state.Playlist.playlists);
-  const isLoading = useSelector((state) => state.Playlist.isLoading);
 
+  const favouritePlaylists = playlists.filter((p) => 
+    favourites.includes(p.playlistId)
+  );
+console.log('f', favouritePlaylists)
   return (
     <div className="container">
-      <h3>Playlist:</h3>
+      <h3>Favourite:</h3>
       <div className="row">
-        {isLoading && <div>Loading...</div>}
-        {playlists.length <= 0 ? (
-          <div>No Playlists Items.</div>
+        {favouritePlaylists.length <= 0 ? (
+          <div>No Favourite Item.</div>
         ) : (
-          playlists.map((item) => (
-            <PlaylistCard
+          favouritePlaylists.map((item) => (
+            <FavouriteCard
               key={item.playlistId}
               image={item.thumbnail.url}
               playlistName={item.playlistTitle}
@@ -28,4 +31,4 @@ function Playlist() {
   );
 }
 
-export default Playlist;
+export default Favourite;
